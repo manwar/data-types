@@ -117,7 +117,7 @@ __END__
 
 =head1 NAME
 
-Data::Types - Perl extension for validating data types.
+Data::Types - Validate and convert data types.
 
 =head1 SYNOPSIS
 
@@ -129,11 +129,11 @@ Data::Types - Perl extension for validating data types.
   my $int = 1.2;
   $int = to_int($int) unless is_int($int);
 
-  my $real = '1.2foo';
-  $real = to_real($real) unless is_real($real);
-
   my $decimal = '1.2foo';
   $decimal = to_decimal($decimal) unless is_decimal($decimal);
+
+  my $real = '1.2foo';
+  $real = to_real($real) unless is_real($real);
 
   my $float = '1.2foo';
   $float = to_float($float) unless is_float($float);
@@ -145,54 +145,54 @@ Data::Types - Perl extension for validating data types.
 
 This module exports a number of functions that are useful for validating and
 converting data types. It is intended for use in applications where data types
-are more important than they typically are in Perl -- e.g., for database
+are more important than they typically are in Perl -- e.g., database
 applications.
 
 =head1 EXPORT
 
-No functions are exported by default, though each function may be imported
-explicitly (see L<Functions>, below, for a list of functions available for
+No functions are exported by default, though each function may be exported
+explicitly (see L<"Functions">, below, for a list of functions available for
 export). The following export tags are supported:
 
 =over 4
 
 =item :whole
 
-Imports is_whole() and to_whole().
+Exports is_whole() and to_whole().
 
 =item :int
 
-Imports is_int() and to_int().
+Exports is_int() and to_int().
 
 =item :decimal
 
-Imports is_decimal() and to_decimal().
+Exports is_decimal() and to_decimal().
 
 =item :real
 
-Imports is_real() and to_real().
+Exports is_real() and to_real().
 
 =item :float
 
-Imports is_float() and to_float().
+Exports is_float() and to_float().
 
 =item :string
 
-Imports is_string() and to_string().
+Exports is_string() and to_string().
 
 =item :is
 
-Imports all validation functions: is_whole(), is_int(), is_real(), is_decimal(),
+Exports all validation functions: is_whole(), is_int(), is_real(), is_decimal(),
 is_float(), and is_string().
 
 =item :to
 
-Imports all conversion functions: to_whole(), to_int(), to_real(), to_decimal(),
+Exports all conversion functions: to_whole(), to_int(), to_real(), to_decimal(),
 to_float(), and to_string().
 
 =item :all
 
-Imports all functions.
+Exports all functions.
 
 =back
 
@@ -203,7 +203,7 @@ Imports all functions.
   my $bool = is_whole($val);
 
 Returns true if $val is a whole number (exclusive of 0), and false if it is not.
-The regular expression used to test the wholeness of a number is C</^\d+$/>.
+The regular expression used to test the wholeness of $val is C</^\d+$/>.
 
 =head2 to_whole
 
@@ -234,8 +234,8 @@ integer in $val is C</^[+-]?\d*$/>.
 
   my $int = to_int($val);
 
-Converts $val to an integer. If $val is a long, it will be rounded to the
-nearest integer. If $val is a mixture of numbers and letters, to_int() will
+Converts $val to an integer. If $val is a decimal number, it will be rounded to
+the nearest integer. If $val is a mixture of numbers and letters, to_int() will
 extract the first decimal number it finds and convert that number to an integer.
 
   my $int = to_int(10.5);  # Returns 10.
@@ -258,9 +258,9 @@ C</^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/>.
   my $dec = to_decimal($val, $precision);
 
 Converts $val to a decimal number. The optional second argument sets the
-precision of the number after the decimal mark. The default precision is 5. If
-$val is a mixture of numbers and letters, to_decimal() will extract the first
-decimal number it finds.
+precision of the number. The default precision is 5. If $val is a mixture of
+numbers and letters, to_decimal() will extract the first decimal number it
+finds.
 
   my $dec = to_decimal(0);         # Returns 0.00000.
   $dec = to_decimal(10.5);         # Returns 10.5.
@@ -306,15 +306,15 @@ used to test $val is C</^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/>.
   my $dec = to_float($val);
   my $dec = to_float($val, $precision);
 
-Converts $val to a floatq. The optional second argument sets the precision of
-the number after the decimal mark. The default precision is 5. If $val is a
-mixture of numbers and letters, to_float() will extract the first float it
-finds.
+Converts $val to a float. The optional second argument sets the precision of the
+number. The default precision is 5. If $val is a mixture of numbers and letters,
+to_float() will extract the first float it finds.
 
-  my $float = to_float(1.23);           # Returns 1.23000.
-  $float = to_float(1.23e9);            # Returns 1.23000e+99.
-  $float = to_float('foo-1.23');        # Returns -1.23000.
-  $float = to_float('ick_1.23e9foo');   # Returns 1.23000e+99.
+  my $float = to_float(1.23);          # Returns 1.23000.
+  $float = to_float(1.23e99);          # Returns 1.23000e+99.
+  $float = to_float(1.23e99, 1);       # Returns 1.2e+99.
+  $float = to_float('foo-1.23');       # Returns -1.23000.
+  $float = to_float('ick_1.23e99foo'); # Returns 1.23000e+99.
 
 =head2 is_string
 
@@ -326,6 +326,7 @@ non-references are considered strings.
   my $bool = is_string('foo'); # Returns true.
   my $bool = is_string(20001); # Returns true.
   my $bool = is_string([]);    # Returns false.
+  my $bool = is_string(undef); # Returns false.
 
 =head2 to_string
 
@@ -363,7 +364,7 @@ L<Regexp::Common|Regexp::Common> contains many useful common regular expressions
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2000-2002, David Wheeler. All Rights Reserved.
+Copyright (c) 2002, David Wheeler. All Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
