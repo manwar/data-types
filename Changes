@@ -1,5 +1,10 @@
 Revision history for Perl extension Data::Types.
 
+0.02  Thu Jan  3 22:06:42 PST 2002
+        - Added second argument to to_string() that will truncate the string.
+        - Fixed Regular expression in is_int() so that it doesn't match '+' or
+          '-'. Thanks to David Alban for the spot.
+
 0.01  Wed Jan  2 12:13:19 PST 2002
 	- original version.
 
