@@ -48,7 +48,7 @@ sub to_whole ($) {
 
 sub is_int ($) {
     return unless defined $_[0] && $_[0] ne '';
-    return unless $_[0] =~ /^[+-]?\d*$/;
+    return unless $_[0] =~ /^[+-]?\d+$/;
     return 1;
 }
 
@@ -232,7 +232,7 @@ number to a whole number.
 
 Returns true if $val is an integer, and false if it is not. Numbers may be
 preceded by a plus or minus sign. The regular expression used to test for an
-integer in $val is C</^[+-]?\d*$/>.
+integer in $val is C</^[+-]?\d+$/>.
 
   my $bool = is_int(0); # Returns true.
   $bool = is_int(22);   # Returns true.
