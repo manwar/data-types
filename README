@@ -1,4 +1,4 @@
-Data/Types version 0.03
+Data/Types version 0.05
 =======================
 
 This module exports a number of functions that are useful for validating and
@@ -8,7 +8,14 @@ applications.
 
 INSTALLATION
 
-To install this module type the following:
+To install this module, type the following:
+
+   perl Build.PL
+   ./Build
+   ./Build test
+   ./Build install
+
+Or, if you don't have Module::Build installed, type the following:
 
    perl Makefile.PL
    make
@@ -17,12 +24,11 @@ To install this module type the following:
 
 DEPENDENCIES
 
-This module requires no other modules or libraries not already included with
-Perl.
+This module requires no modules or libraries not already included with Perl.
 
 COPYRIGHT AND LICENCE
 
-Copyright (c) 2002, David Wheeler. All Rights Reserved.
+Copyright (c) 2002-2003, David Wheeler. All Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.

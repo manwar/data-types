@@ -1,6 +1,13 @@
- Revision history for Perl extension Data::Types.
+Revision history for Perl extension Data::Types.
 
-0.03  
+0.05    
+        - Switched to Module::Build.
+
+0.04    Thu Jul 25 05:09:13 2002
+        - Added reference to Arthur Bergman's new "types" pragma for Perl
+          5.8.0. Thought I'd done it in 0.03, but I guess not.
+
+0.03  Mon Jul 22 21:05:26 2002
         - Fixed to_float() tests so that comparison is more precise. Necessary
           for compatability with Perl 5.8.0 (and probably better, anyway).
         - Reorganized structure of distribution to reflect more modern standard
