@@ -4,7 +4,7 @@ use strict;
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
-$VERSION = '0.02';
+$VERSION = '0.03';
 
 @ISA = qw(Exporter);
 
@@ -377,8 +377,8 @@ types used in this module.
 
 L<String::Checker|String::Checker> also does some data type validation.
 
-L<String::Scanf|String::Scanf> reimplements the C sscanf() function in perl, and
-also does data type validation and conversion.
+L<String::Scanf|String::Scanf> reimplements the C C<sscanf()> function in
+perl, and also does data type validation and conversion.
 
 L<Regexp::Common|Regexp::Common> contains many useful common regular expressions
 (surprise!), including some that can be used to identify data types.

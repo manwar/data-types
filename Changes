@@ -1,5 +1,11 @@
  Revision history for Perl extension Data::Types.
 
+0.03  
+        - Fixed to_float() tests so that comparison is more precise. Necessary
+          for compatability with Perl 5.8.0 (and probably better, anyway).
+        - Reorganized structure of distribution to reflect more modern standard
+          for CPAN modules.
+
 0.02  Thu Jan  3 22:06:42 PST 2002
         - Added second argument to to_string() that will truncate the string.
         - Fixed Regular expression in is_int() so that it doesn't match '+' or
