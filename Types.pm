@@ -371,8 +371,9 @@ David Wheeler E<lt>david@wheeler.netE<gt>
 
 =head1 SEE ALSO
 
-L<perlfaq4(36)|perlfaq4/36> lists the most of the regular expressions used to
-identify the different numeric types used in this module.
+L<perlfaq4|perlfaq4/"How do I determine whether a scalar is anumber/whole/integer/float?">
+lists the most of the regular expressions used to identify the different numeric
+types used in this module.
 
 L<String::Checker|String::Checker> also does some data type validation.
 
