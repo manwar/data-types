@@ -2,7 +2,7 @@
 
 use strict;
 use Test;
-BEGIN { plan tests => 133 };
+BEGIN { plan tests => 136 };
 use Data::Types qw(:all);
 ok(1); # If we made it this far, we're ok.
 
@@ -146,6 +146,7 @@ ok( to_float('44.334foo') == 44.334 );
 ok( to_float(-34.3) == -34.3 );
 ok( to_float(+456.04) == 456.04 );
 ok( to_float(1.23e99) == 1.23e99 );
+ok( to_float(1.23e99, 1) == 1.2e99 );
 ok( to_float('foo1.23e99') == 1.23e99 );
 ok( ! defined to_float(undef) );
 ok( ! defined to_float('') );
