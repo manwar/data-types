@@ -2,7 +2,7 @@
 
 use strict;
 use Test;
-BEGIN { plan tests => 136 };
+BEGIN { plan tests => 145 };
 use Data::Types qw(:all);
 ok(1); # If we made it this far, we're ok.
 
@@ -41,11 +41,13 @@ ok( is_int(10) );
 ok( is_int(0) );
 ok( is_int(-33) );
 ok( is_int(+23) );
+ok( ! is_int('+') );
+ok( ! is_int('-') );
 ok( ! is_int(22.2) );
 ok( ! is_int(0.44) );
 ok( ! is_int('foo') );
 ok( ! is_int('33foo') );
-ok( !is_int(-33.2) );
+ok( ! is_int(-33.2) );
 ok( ! is_int(undef));
 ok( ! is_int(''));
 
@@ -74,6 +76,8 @@ ok( is_decimal(0) );
 ok( is_decimal(22) );
 ok( is_decimal(-33) );
 ok( is_decimal(-33.0) );
+ok( ! is_decimal('+') );
+ok( ! is_decimal('-') );
 ok( ! is_decimal(undef) );
 ok( ! is_decimal('foo') );
 ok( ! is_decimal('foo22') );
@@ -105,6 +109,8 @@ ok( is_real(-4) );
 ok( is_real(-4.9) );
 ok( is_real(12043.3423) );
 ok( ! is_real('foo') );
+ok( ! is_real('+') );
+ok( ! is_real('-') );
 ok( ! is_real(undef) );
 ok( ! is_real('foo34.33') );
 ok( ! is_real(1.23e99) );
@@ -135,6 +141,8 @@ ok( is_float(+234.5) );
 ok( !is_float('foo') );
 ok( !is_float('22.34foo') );
 ok( !is_float(undef) );
+ok( !is_float('+') );
+ok( !is_float('-') );
 ok( !is_float('') );
 
 # Test to_float.
