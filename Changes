@@ -1,4 +1,4 @@
-Revision history for Perl extension Data::Types.
+ Revision history for Perl extension Data::Types.
 
 0.02  Thu Jan  3 22:06:42 PST 2002
         - Added second argument to to_string() that will truncate the string.
@@ -6,5 +6,4 @@ Revision history for Perl extension Data::Types.
           '-'. Thanks to David Alban for the spot.
 
 0.01  Wed Jan  2 12:13:19 PST 2002
-	- original version.
-
+        - original version.
