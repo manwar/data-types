@@ -167,5 +167,6 @@ ok( to_string('') eq '' );
 ok( to_string(0) eq '0' );
 ok( to_string($var) eq "$var" );
 ok( ! defined to_string(undef) );
+ok( to_string('hello', 4) eq 'hell' );
 
 __END__

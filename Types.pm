@@ -107,9 +107,9 @@ sub to_float ($;$) {
 
 sub is_string ($) { defined $_[0] && ! ref $_[0] }
 
-sub to_string ($) {
+sub to_string ($;$) {
     return unless defined $_[0];
-    "$_[0]";
+    return $_[1] ? substr("$_[0]", 0, $_[1]) : "$_[0]";
 }
 
 1;
@@ -331,15 +331,20 @@ non-references are considered strings.
 =head2 to_string
 
   my $string = to_string($val);
+  my $string = to_string($val, $length);
 
 Converts $val into a string. If $val is a reference, the string value of the
 reference will be returned. Such a value may be a memory address, or some other
 value, if the stringification operator has been overridden for the object stored
-in $val. If $val is undefined, to_string() will return undef.
+in $val. If the optional second argument $length is passed, to_string() will
+truncate the string to that length. If $length is 0 (zero), it will not limit
+the length of the return string. If $val is undefined, to_string() will return
+undef.
 
-  my $string = to_string('foo'); # Returns 'foo'.
-  my $string = to_string([]);    # Returns 'ARRAY(0x101bec14)'.
-  my $string = to_string(undef); # Returns undef.
+  my $string = to_string('foo');      # Returns 'foo'.
+  my $string = to_string([]);         # Returns 'ARRAY(0x101bec14)'.
+  my $string = to_string(undef);      # Returns undef.
+  my $string = to_string('hello', 4); # Returns 'hell'.
 
 =head1 BUGS
 
