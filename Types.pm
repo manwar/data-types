@@ -205,6 +205,10 @@ Exports all functions.
 Returns true if $val is a whole number (exclusive of 0), and false if it is not.
 The regular expression used to test the wholeness of $val is C</^\d+$/>.
 
+  my $bool = is_whole(1); # Returns true.
+  $bool = is_whole(-1);   # Returns false.
+  $bool = is_whole(0);    # Returns false.
+
 =head2 to_whole
 
   my $whole = to_whole($val);
@@ -215,12 +219,12 @@ module, it will not be returned. If $val is a mixture of numbers and letters,
 to_whole() will extract the first decimal number it finds and convert that
 number to a whole number.
 
-  my $whole = to_whole(10);        # Returns 10.
-  my $whole = to_whole(0);         # Returns undef.
-  my $whole = to_whole(.22);       # Returns undef (rounded down to 0).
-  my $whole = to_whole(-2);        # Returns undef.
-  my $whole = to_whole('foo3.56'); # Returns 4.
-  my $whole = to_whole('foo');     # Returns undef.
+  my $whole = to_whole(10);     # Returns 10.
+  $whole = to_whole(0);         # Returns undef.
+  $whole = to_whole(.22);       # Returns undef (rounded down to 0).
+  $whole = to_whole(-2);        # Returns undef.
+  $whole = to_whole('foo3.56'); # Returns 4.
+  $whole = to_whole('foo');     # Returns undef.
 
 =head2 is_int
 
@@ -229,6 +233,11 @@ number to a whole number.
 Returns true if $val is an integer, and false if it is not. Numbers may be
 preceded by a plus or minus sign. The regular expression used to test for an
 integer in $val is C</^[+-]?\d*$/>.
+
+  my $bool = is_int(0); # Returns true.
+  $bool = is_int(22);   # Returns true.
+  $bool = is_int(-22);  # Returns false.
+  $bool = is_int(3.2);  # Returns false.
 
 =head2 to_int
 
@@ -252,10 +261,15 @@ Returns true if $val is a decimal number, and false if it is not. Numbers may be
 preceded by a plus or minus sign. The regular expression used to test $val is
 C</^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/>.
 
+  my $bool = is_decimal(10)    # Returns true.
+  $bool = is_decimal(10.8)     # Returns true.
+  $bool = is_decimal(-33.48)   # Returns true.
+  $bool = is_decimal((1.23e99) # Returns false.
+
 =head2 to_decimal
 
   my $dec = to_decimal($val);
-  my $dec = to_decimal($val, $precision);
+  $dec = to_decimal($val, $precision);
 
 Converts $val to a decimal number. The optional second argument sets the
 precision of the number. The default precision is 5. If $val is a mixture of
@@ -283,6 +297,7 @@ implementation may change in the future.
 =head2 to_real
 
   my $real = to_real($val);
+  $real = to_real($val, $precision);
 
 Converts $val to a real number.
 
@@ -297,14 +312,14 @@ implementation may change in the future.
 Returns true if $val is a float, and false if it is not. The regular expression
 used to test $val is C</^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/>.
 
-  my $bool = is_real(30);      # Returns true.
-  my $bool = is_real(1.23e99); # Returns true.
-  my $bool = is_real('foo');   # Returns false.
+  my $bool = is_real(30);   # Returns true.
+  $bool = is_real(1.23e99); # Returns true.
+  $bool = is_real('foo');   # Returns false.
 
 =head2 to_float
 
   my $dec = to_float($val);
-  my $dec = to_float($val, $precision);
+  $dec = to_float($val, $precision);
 
 Converts $val to a float. The optional second argument sets the precision of the
 number. The default precision is 5. If $val is a mixture of numbers and letters,
@@ -324,14 +339,14 @@ Returns true if $val is a string, and false if it is not. All defined
 non-references are considered strings.
 
   my $bool = is_string('foo'); # Returns true.
-  my $bool = is_string(20001); # Returns true.
-  my $bool = is_string([]);    # Returns false.
-  my $bool = is_string(undef); # Returns false.
+  $bool = is_string(20001);    # Returns true.
+  $bool = is_string([]);       # Returns false.
+  $bool = is_string(undef);    # Returns false.
 
 =head2 to_string
 
   my $string = to_string($val);
-  my $string = to_string($val, $length);
+  $string = to_string($val, $length);
 
 Converts $val into a string. If $val is a reference, the string value of the
 reference will be returned. Such a value may be a memory address, or some other
@@ -341,10 +356,10 @@ truncate the string to that length. If $length is 0 (zero), it will not limit
 the length of the return string. If $val is undefined, to_string() will return
 undef.
 
-  my $string = to_string('foo');      # Returns 'foo'.
-  my $string = to_string([]);         # Returns 'ARRAY(0x101bec14)'.
-  my $string = to_string(undef);      # Returns undef.
-  my $string = to_string('hello', 4); # Returns 'hell'.
+  my $string = to_string('foo');   # Returns 'foo'.
+  $string = to_string([]);         # Returns 'ARRAY(0x101bec14)'.
+  $string = to_string(undef);      # Returns undef.
+  $string = to_string('hello', 4); # Returns 'hell'.
 
 =head1 BUGS
 
@@ -356,7 +371,7 @@ David Wheeler E<lt>david@wheeler.netE<gt>
 
 =head1 SEE ALSO
 
-L<perlfaq4(6)|perlfaq4/6> lists the most of the regular expressions used to
+L<perlfaq4(36)|perlfaq4/36> lists the most of the regular expressions used to
 identify the different numeric types used in this module.
 
 L<String::Checker|String::Checker> also does some data type validation.
