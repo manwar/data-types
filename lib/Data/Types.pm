@@ -363,11 +363,11 @@ undef.
 
 =head1 BUGS
 
-Hopefully none. Contact the author if you discover any.
+Please send bug reports to <bug-data-types@rt.cpan.org>.
 
 =head1 AUTHOR
 
-David Wheeler <david@wheeler.net>
+David Wheeler <david@kineticde.com>
 
 =head1 SEE ALSO
 
@@ -389,7 +389,7 @@ using this prgrma for fast, static data types.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2003, David Wheeler. All Rights Reserved.
+Copyright (c) 2002-2004, David Wheeler. All Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
