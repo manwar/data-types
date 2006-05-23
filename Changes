@@ -1,6 +1,6 @@
 Revision history for Perl extension Data::Types.
 
-0.06
+0.06  2006-05-23T00:45:44
         - Added POD tests.
         - Backwards compatibility change: Whole numbers now include 0. This is
           more inline with accepted mathmatical definitions. See, e.g.,
@@ -9,6 +9,7 @@ Revision history for Perl extension Data::Types.
         - Added is_count() and to_count() to match whole numbers exclusive of
           zero. These functions match the previous behavior of is_whole() and
           to_whole().
+        - Fixed a typo in my email address.
 
 0.05    Tue Aug 26 01:21:03 2003
         - Switched to Module::Build.
