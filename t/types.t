@@ -2,7 +2,7 @@
 
 use strict;
 use Test;
-BEGIN { plan tests => 145 };
+BEGIN { plan tests => 169 };
 use Data::Types qw(:all);
 ok(1); # If we made it this far, we're ok.
 
@@ -13,7 +13,7 @@ ok( is_whole(10) );
 ok( is_whole(22) );
 ok( is_whole(1) );
 ok( is_whole(700) );
-ok( ! is_whole(0) );
+ok( is_whole(0) );
 ok( ! is_whole(.22) );
 ok( ! is_whole(-33) );
 ok( ! is_whole(-0.1) );
@@ -25,16 +25,44 @@ ok( to_whole('foo33') ==  33);
 ok( to_whole('ri+4') == 4 );
 ok( to_whole('+45ts') == 45 );
 ok( to_whole(1.23e99) == 1) ;  # This should probably be changed somehow.
-ok( ! defined to_whole(0) );
+ok( to_whole(0) eq '0' );
 ok( ! defined to_whole('blech') );
 ok( ! defined to_whole('') );
 ok( ! defined to_whole(undef) );
-ok( ! defined to_whole('foo00') );
-ok( ! defined to_whole(.44) );
+ok( to_whole('foo00') eq '0' );
+ok( to_whole(.44) eq '0' );
 ok( ! defined to_whole('foo-33') );
 ok( ! defined to_whole(-44) );
 ok( ! defined to_whole(-0.33) );
 ok( ! defined to_whole('sep-0.1') );
+
+# Test is_count.
+ok( is_count(10) );
+ok( is_count(22) );
+ok( is_count(1) );
+ok( is_count(700) );
+ok( ! is_count(0) );
+ok( ! is_count(.22) );
+ok( ! is_count(-33) );
+ok( ! is_count(-0.1) );
+
+# Test to_count.
+ok( to_count(10) == 10 );
+ok( to_count(1) == 1 );
+ok( to_count('foo33') ==  33);
+ok( to_count('ri+4') == 4 );
+ok( to_count('+45ts') == 45 );
+ok( to_count(1.23e99) == 1) ;  # This should probably be changed somehow.
+ok( ! defined to_count(0) );
+ok( ! defined to_count('blech') );
+ok( ! defined to_count('') );
+ok( ! defined to_count(undef) );
+ok( ! defined to_count('foo00') );
+ok( ! defined to_count(.44) );
+ok( ! defined to_count('foo-33') );
+ok( ! defined to_count(-44) );
+ok( ! defined to_count(-0.33) );
+ok( ! defined to_count('sep-0.1') );
 
 # Test is_int.
 ok( is_int(10) );

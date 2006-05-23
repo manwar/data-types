@@ -8,23 +8,23 @@ $VERSION = '0.06';
 
 @ISA = qw(Exporter);
 
-@EXPORT_OK = qw(is_whole to_whole is_int to_int is_real to_real is_decimal
-                to_decimal is_float to_float is_string to_string
-);
+@EXPORT_OK = qw(is_whole to_whole is_count to_count is_int to_int is_real
+                to_real is_decimal to_decimal is_float to_float is_string
+                to_string );
 
 @EXPORT = qw();
 
-%EXPORT_TAGS = ( all     => \@EXPORT_OK,
-		 whole   => [qw(is_whole to_whole)],
-		 int     => [qw(is_int to_int)],
-		 decimal => [qw(is_decimal to_decimal)],
-		 real    => [qw(is_real to_real)],
-		 float   => [qw(is_float to_float)],
-		 string  => [qw(is_string to_string)],
-		 is      => [qw(is_whole is_int is_real is_decimal is_float
-                                is_string)],
-		 to      => [qw(to_whole to_int to_real to_decimal to_float
-                                to_string)]
+%EXPORT_TAGS = (
+    all     => \@EXPORT_OK,
+    whole   => [qw(is_whole to_whole)],
+    count   => [qw(is_count to_count)],
+    int     => [qw(is_int to_int)],
+    decimal => [qw(is_decimal to_decimal)],
+    real    => [qw(is_real to_real)],
+    float   => [qw(is_float to_float)],
+    string  => [qw(is_string to_string)],
+    is      => [qw(is_whole is_int is_real is_decimal is_float is_string)],
+    to      => [qw(to_whole to_int to_real to_decimal to_float to_string)],
 );
 
 use constant DEF_PRECISION => 5;
@@ -34,12 +34,25 @@ use constant DEF_PRECISION => 5;
 ################################################################################
 
 sub is_whole ($) {
-    return unless $_[0];
+    return unless defined $_[0];
     return unless $_[0] =~ /^\d+$/;
     return 1;
 }
 
 sub to_whole ($) {
+    return unless defined $_[0];
+    my ($num) = $_[0] =~ /([+-]?(?:\d+(?:\.\d*)?|\.\d+))/;
+    return unless defined $num && $num >= 0;
+    sprintf "%.0f", $num;
+}
+
+sub is_count ($) {
+    return unless $_[0];
+    return unless $_[0] =~ /^\d+$/;
+    return 1;
+}
+
+sub to_count ($) {
     return unless $_[0];
     my ($num) = $_[0] =~ /([+-]?(?:\d+(?:\.\d*)?|\.\d+))/;
     return unless $num && $num > .5;
@@ -160,6 +173,10 @@ export). The following export tags are supported:
 
 Exports is_whole() and to_whole().
 
+=item :count
+
+Exports is_count() and to_count().
+
 =item :int
 
 Exports is_int() and to_int().
@@ -202,29 +219,57 @@ Exports all functions.
 
   my $bool = is_whole($val);
 
-Returns true if $val is a whole number (exclusive of 0), and false if it is not.
+Returns true if $val is a whole number (including 0), and false if it is not.
 The regular expression used to test the wholeness of $val is C</^\d+$/>.
 
   my $bool = is_whole(1); # Returns true.
   $bool = is_whole(-1);   # Returns false.
-  $bool = is_whole(0);    # Returns false.
+  $bool = is_whole(0);    # Returns true.
 
 =head2 to_whole
 
   my $whole = to_whole($val);
 
 Converts $val to a whole number and returns it. Numbers will be rounded to the
-nearest whole. Note that since 0 (zero) is not considered a whole number by this
-module, it will not be returned. If $val is a mixture of numbers and letters,
-to_whole() will extract the first decimal number it finds and convert that
-number to a whole number.
+nearest whole. If $val is a mixture of numbers and letters, to_whole() will
+extract the first decimal number it finds and convert that number to a whole
+number.
 
   my $whole = to_whole(10);     # Returns 10.
-  $whole = to_whole(0);         # Returns undef.
-  $whole = to_whole(.22);       # Returns undef (rounded down to 0).
+  $whole = to_whole(0);         # Returns 0.
+  $whole = to_whole(.22);       # Returns 0.
   $whole = to_whole(-2);        # Returns undef.
   $whole = to_whole('foo3.56'); # Returns 4.
   $whole = to_whole('foo');     # Returns undef.
+
+=head2 is_count
+
+  my $bool = is_count($val);
+
+Returns true if $val is a counting number (1, 2, 3, ...), and false if it is
+not. The regular expression used to test whether $val is a counting number is
+C</^\d+$/>.
+
+  my $bool = is_count(1); # Returns true.
+  $bool = is_count(-1);   # Returns false.
+  $bool = is_count(0);    # Returns false.
+
+=head2 to_count
+
+  my $count = to_count($val);
+
+Converts $val to a counting number and returns it. Numbers will be rounded to
+the nearest counting number. Note that since 0 (zero) is not considered a
+counting number by this module, it will not be returned. If $val is a mixture
+of numbers and letters, to_count() will extract the first decimal number it
+finds and convert that number to a counting number.
+
+  my $count = to_count(10);     # Returns 10.
+  $count = to_count(0);         # Returns undef.
+  $count = to_count(.22);       # Returns undef (rounded down to 0).
+  $count = to_count(-2);        # Returns undef.
+  $count = to_count('foo3.56'); # Returns 4.
+  $count = to_count('foo');     # Returns undef.
 
 =head2 is_int
 
@@ -367,7 +412,7 @@ Please send bug reports to <bug-data-types@rt.cpan.org>.
 
 =head1 AUTHOR
 
-David Wheeler <david@kineticde.com>
+David Wheeler <david@kineticode.com>
 
 =head1 SEE ALSO
 

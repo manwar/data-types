@@ -1,14 +1,17 @@
---- #YAML:1.0
+---
 name: Data-Types
-version: 0.05
+version: 0.06
+author:
+  - 'David Wheeler <david@kineticode.com>'
+abstract: Validate and convert data types.
 license: perl
-distribution_type: module
-requires: {}
-recommends: {}
-build_requires: {}
-conflicts: {}
+resources:
+  license: http://dev.perl.org/licenses/
 provides:
   Data::Types:
     file: lib/Data/Types.pm
-    version: 0.05
-generated_by: Module::Build version 0.19_05
+    version: 0.06
+generated_by: Module::Build version 0.2801
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.2.html
+  version: 1.2
