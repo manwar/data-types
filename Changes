@@ -1,5 +1,7 @@
 Revision history for Perl extension Data::Types.
 
+0.07
+
 0.06  2006-05-23T00:45:44
         - Added POD tests.
         - Backwards compatibility change: Whole numbers now include 0. This is
