@@ -1,17 +1,21 @@
 ---
 name: Data-Types
-version: 0.06
+version: 0.07
 author:
   - 'David Wheeler <david@kineticode.com>'
 abstract: Validate and convert data types.
 license: perl
 resources:
   license: http://dev.perl.org/licenses/
+configure_requires:
+  Module::Build: 0.2701
+build_requires:
+  Test::Simple: 0.17
 provides:
   Data::Types:
     file: lib/Data/Types.pm
-    version: 0.06
-generated_by: Module::Build version 0.2801
+    version: 0.07
+generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
   version: 1.2

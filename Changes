@@ -1,6 +1,11 @@
 Revision history for Perl extension Data::Types.
 
 0.07
+       - Added Module::Build to the "configure_requires" parameter in
+         Build.PL. This should help prevent failures on systems that don't
+         already have Module::Build installed and run Makefile.PL. Reported by
+         Slaven Rezic.
+       - Added Test::Simple to the "build_requires" parameter in Build.PL.
 
 0.06  2006-05-23T00:45:44
         - Added POD tests.
