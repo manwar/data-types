@@ -2,6 +2,9 @@ Revision history for Perl extension Data::Types.
 
 0.08
        - Added Test::Pod to the "recommends" parameter in Build.PL.
+       - Added Module::Build to the "build_requires" parameter in Build.PL.
+       - Updated copyright.
+       - Added a link to the Subversion repository.
 
 0.07  2008-01-22T18:27:22
        - Added Module::Build to the "configure_requires" parameter in

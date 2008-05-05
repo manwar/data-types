@@ -406,9 +406,14 @@ undef.
   $string = to_string(undef);      # Returns undef.
   $string = to_string('hello', 4); # Returns 'hell'.
 
-=head1 BUGS
+=head1 SUPPORT
 
-Please send bug reports to <bug-data-types@rt.cpan.org>.
+This module is stored in an open repository at the following address:
+
+L<https://svn.kineticode.com/Data-Types/trunk/>
+
+Patches against Data::Types are welcome. Please send bug reports to
+<bug-data-types@rt.cpan.org>.
 
 =head1 AUTHOR
 
@@ -434,7 +439,7 @@ using this prgrma for fast, static data types.
 
 =head1 COPYRIGHT AND LICENSE
 
-Copyright (c) 2002-2006, David Wheeler. All Rights Reserved.
+Copyright (c) 2002-2008, David Wheeler. Some Rights Reserved.
 
 This module is free software; you can redistribute it and/or modify it under the
 same terms as Perl itself.
