@@ -1,6 +1,6 @@
 ---
 name: Data-Types
-version: 0.07
+version: 0.08
 author:
   - 'David Wheeler <david@kineticode.com>'
 abstract: Validate and convert data types.
@@ -10,11 +10,14 @@ resources:
 configure_requires:
   Module::Build: 0.2701
 build_requires:
-  Test::Simple: 0.17
+  Module::Build: 0.2701
+  Test::More: 0.17
+recommends:
+  Test::Pod: 1.20
 provides:
   Data::Types:
     file: lib/Data/Types.pm
-    version: 0.07
+    version: 0.08
 generated_by: Module::Build version 0.280801
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.2.html
