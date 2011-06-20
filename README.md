@@ -28,7 +28,8 @@ Dependencies
 
 This module requires no modules or libraries not already included with Perl.
 
-COPYRIGHT AND LICENCE
+Copyright and Licence
+---------------------
 
 Copyright (c) 2002-2011, David E. Wheeler. Some Rights Reserved.
 
