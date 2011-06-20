@@ -408,11 +408,15 @@ undef.
 
 =head1 SUPPORT
 
-This module is stored in an open repository at the following address:
+This module is stored in an open L<GitHub
+repository|http://github.com/theory/data-types/>. Feel free to fork and
+contribute!
 
-L<https://svn.kineticode.com/Data-Types/trunk/>
+Please file bug reports via L<GitHub
+Issues|http://github.com/theory/data-types/issues/> or by sending mail to
+L<bug-Data-Types.cpan.org|mailto:bug-Data-Types.cpan.org>.
 
-Patches against Data::Types are welcome. Please send bug reports to
+Patches against Class::Meta are welcome. Please send bug reports to
 <bug-data-types@rt.cpan.org>.
 
 =head1 AUTHOR
