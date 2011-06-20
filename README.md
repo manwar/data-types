@@ -1,4 +1,4 @@
-Data/Types version 0.09
+Data/Types version 0.10
 =======================
 
 This module exports a number of functions that are useful for validating and
