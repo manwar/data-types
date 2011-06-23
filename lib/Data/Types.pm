@@ -414,7 +414,7 @@ contribute!
 
 Please file bug reports via L<GitHub
 Issues|http://github.com/theory/data-types/issues/> or by sending mail to
-L<bug-Data-Types.cpan.org|mailto:bug-Data-Types.cpan.org>.
+L<bug-Data-Types@rt.cpan.org|mailto:bug-Data-Types@rt.cpan.org>.
 
 Patches against Class::Meta are welcome. Please send bug reports to
 <bug-data-types@rt.cpan.org>.

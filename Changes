@@ -1,6 +1,7 @@
 Revision history for Perl extension Data::Types.
 
 0.10
+      - Fixed broken rt.cpan.org email address.
 
 0.09  2011-06-20T03:15:50
       - Moved repostitory to [GitHub](https://github.com/theory/data-types/).
