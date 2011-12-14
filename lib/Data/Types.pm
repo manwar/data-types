@@ -281,7 +281,7 @@ integer in $val is C</^[+-]?\d+$/>.
 
   my $bool = is_int(0); # Returns true.
   $bool = is_int(22);   # Returns true.
-  $bool = is_int(-22);  # Returns false.
+  $bool = is_int(-22);  # Returns true.
   $bool = is_int(3.2);  # Returns false.
 
 =head2 to_int
@@ -309,7 +309,7 @@ C</^[+-]?(?:\d+(?:\.\d*)?|\.\d+)$/>.
   my $bool = is_decimal(10)    # Returns true.
   $bool = is_decimal(10.8)     # Returns true.
   $bool = is_decimal(-33.48)   # Returns true.
-  $bool = is_decimal((1.23e99) # Returns false.
+  $bool = is_decimal(1.23e99)  # Returns false.
 
 =head2 to_decimal
 
