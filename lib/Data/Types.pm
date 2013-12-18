@@ -439,7 +439,7 @@ L<Regexp::Common|Regexp::Common> contains many useful common regular expressions
 
 Arthur Bergman's L<types|types> pragma, offers compile-time data types for
 Perl 5.8.0. The data types include int, float, and string. I highly recommend
-using this prgrma for fast, static data types.
+using this pragma for fast, static data types.
 
 =head1 COPYRIGHT AND LICENSE
 
