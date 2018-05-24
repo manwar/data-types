@@ -4,7 +4,7 @@ use strict;
 require Exporter;
 use vars qw($VERSION @ISA @EXPORT @EXPORT_OK %EXPORT_TAGS);
 
-$VERSION = '0.10';
+$VERSION = '0.11';
 
 @ISA = qw(Exporter);
 
@@ -409,11 +409,11 @@ undef.
 =head1 SUPPORT
 
 This module is stored in an open L<GitHub
-repository|http://github.com/theory/data-types/>. Feel free to fork and
+repository|http://github.com/manwar/data-types/>. Feel free to fork and
 contribute!
 
 Please file bug reports via L<GitHub
-Issues|http://github.com/theory/data-types/issues/> or by sending mail to
+Issues|http://github.com/manwar/data-types/issues/> or by sending mail to
 L<bug-Data-Types@rt.cpan.org|mailto:bug-Data-Types@rt.cpan.org>.
 
 Patches against Class::Meta are welcome. Please send bug reports to
@@ -422,6 +422,8 @@ Patches against Class::Meta are welcome. Please send bug reports to
 =head1 AUTHOR
 
 David E. Wheeler <david@justatheory.com>
+
+Currently maintained by Mohammad S Anwar C<< <mohammad.anwar @ yahoo.com> >>
 
 =head1 SEE ALSO
 
