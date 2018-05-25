@@ -1,10 +1,15 @@
 Revision history for Perl extension Data::Types.
 
-0.10  2018-05-24T11:30:00
+0.12  2018-05-25T07:45:00
+      - Added Makefile.PL file as suggested by README.
+
+0.11  2018-05-24T11:30:00
       - Updated home page url, pointing to metacpan.org. (MANWAR)
       - Updated repository details since the move. (MANWAR)
       - Updated issues url since the move. (MANWAR)
       - Removed entry MANIFEST from .gitignore. (MANWAR)
+
+0.10  2018-05-24T11:30:00
       - Fixed broken rt.cpan.org email address.
       - Fixed invalid documentation examples spotted by fschlich.
 
