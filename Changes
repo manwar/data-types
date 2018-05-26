@@ -1,7 +1,10 @@
 Revision history for Perl extension Data::Types.
 
+0.13  2018-05-26T09:00:00
+      - Fixed warning "Can't stat bin: No such file or directory". (MANWAR)
+
 0.12  2018-05-25T07:45:00
-      - Added Makefile.PL file as suggested by README.
+      - Added Makefile.PL file as suggested by README. (MANWAR)
 
 0.11  2018-05-24T11:30:00
       - Updated home page url, pointing to metacpan.org. (MANWAR)
