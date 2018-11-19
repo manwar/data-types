@@ -352,14 +352,14 @@ implementation may change in the future.
 
 =head2 is_float
 
-  my $bool = is_real($val);
+  my $bool = is_float($val);
 
 Returns true if $val is a float, and false if it is not. The regular expression
 used to test $val is C</^([+-]?)(?=\d|\.\d)\d*(\.\d*)?([Ee]([+-]?\d+))?$/>.
 
-  my $bool = is_real(30);   # Returns true.
-  $bool = is_real(1.23e99); # Returns true.
-  $bool = is_real('foo');   # Returns false.
+  my $bool = is_float(30);   # Returns true.
+  $bool = is_float(1.23e99); # Returns true.
+  $bool = is_float('foo');   # Returns false.
 
 =head2 to_float
 
